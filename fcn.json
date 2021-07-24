@@ -6,7 +6,7 @@
     "arch": {
         "type": "FCN8",
         "args": {
-            "backbone": "resnet101",
+            "backbone": "resnet50",
             "freeze_bn": false,
             "freeze_backbone": false
         }
