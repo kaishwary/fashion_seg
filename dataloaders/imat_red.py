@@ -15,6 +15,7 @@ class ImatRed(BaseDataSet):
         self.warp_image = warp_image
         self.num_classes = 46
         self.palette = palette.get_voc_palette(self.num_classes)
+        self.root = os.path.join("data","imat_reduced")
         super(ImatRed, self).__init__(**kwargs)
 
     def _set_files(self):
