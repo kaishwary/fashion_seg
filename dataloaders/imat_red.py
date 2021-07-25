@@ -20,13 +20,13 @@ class ImatRed(BaseDataSet):
 
     def _set_files(self):
         if self.split in ['train', 'test']:
-            file_path = os.path.join(self.root, self.split, "*")
+            file_path = os.path.join("data","imat_reduced", self.split, "*")
             self.files = [os.path.basename(x).split(".")[0] for x in glob(file_path)]
         else: raise ValueError(f"Invalid split name {self.split} choose one of [train, test]")
 
     def _load_data(self, index):
         image_id = self.files[index]
-        image_path = os.path.join(self.root, self.split, image_id + ".h5")
+        image_path = os.path.join("data","imat_reduced", self.split, image_id + ".h5")
         # load data from h5
         image, label = self._read_single_hdf5(image_path)
         return image, label, image_id
