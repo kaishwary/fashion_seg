@@ -28,7 +28,7 @@ class Imaterialist(BaseDataSet):
     def _set_files(self):
         if self.split in ['train', 'test']:
             file_path = os.path.join(self.DATA_DIR, self.split, "*")
-            self.files = list(self.image_df.index)
+            self.files = [os.path.basename(x).split(".")[0] for x in glob(file_path)]
         else: raise ValueError(f"Invalid split name {self.split} choose one of [train, test]")
 
     def _load_data(self, index):
