@@ -1,22 +1,22 @@
 {
     "name": "segnet",
     "n_gpu": 1,
-    "use_synch_bn": true,
+    "use_synch_bn": false,
 
     "arch": {
         "type": "SegNet",
         "args": {
-            "backbone": "resnet101",
+            "backbone": "resnet50",
             "freeze_bn": false,
             "freeze_backbone": false
         }
     },
 
     "train_loader": {
-        "type": "IMAT",
+        "type": "IMATREDLoader",
         "args":{
             "data_dir": "",
-            "batch_size": 8,
+            "batch_size": 16,
             "base_size": 400,
             "crop_size": 380,
             "augment": true,
@@ -31,10 +31,10 @@
     },
 
     "val_loader": {
-        "type": "IMAT",
+        "type": "IMATREDLoader",
         "args":{
             "data_dir": "",
-            "batch_size": 8,
+            "batch_size": 16,
             "crop_size": 480,
             "val": true,
             "split": "test",
