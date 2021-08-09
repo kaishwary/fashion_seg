@@ -1,5 +1,5 @@
 {
-    "name": "deeplabv3",
+    "name": "deeplabv3_v1",
     "n_gpu": 1,
     "use_synch_bn": false,
 
@@ -7,8 +7,8 @@
         "type": "DeepLab",
         "args": {
             "backbone": "resnet50",
-            "freeze_bn": false,
-            "freeze_backbone": false
+            "freeze_bn": true,
+            "freeze_backbone": true
         }
     },
 
@@ -16,7 +16,7 @@
         "type": "IMATREDLoader",
         "args":{
             "data_dir": "",
-            "batch_size": 16,
+            "batch_size": 30,
             "base_size": 400,
             "crop_size": 380,
             "augment": true,
@@ -60,9 +60,9 @@
     },
 
     "trainer": {
-        "epochs": 80,
+        "epochs": 40,
         "save_dir": "saved/",
-        "save_period": 10,
+        "save_period": 5,
   
         "monitor": "max Mean_IoU",
         "early_stop": 10,
